@@ -1,0 +1,10 @@
+def merge_the_tools(string, k):
+    for i in range(0, len(string), k):
+        t = string[i:i+k]
+        u = ""
+        seen = set()
+        for char in t:
+            if char not in seen:
+                u += char
+                seen.add(char)
+        print(u)
