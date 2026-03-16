@@ -1,0 +1,29 @@
+from datetime import datetime
+
+# Function to compute absolute difference in seconds
+def time_difference(test_cases):
+    results = []
+
+    # Loop through each testcase
+    for i in range(0, len(test_cases), 2):
+        t1 = test_cases[i]
+        t2 = test_cases[i + 1]
+
+        # Convert timestamps to datetime objects
+        dt1 = datetime.strptime(t1, "%a %d %b %Y %H:%M:%S %z")
+        dt2 = datetime.strptime(t2, "%a %d %b %Y %H:%M:%S %z")
+
+        # Calculate the difference in seconds
+        diff = abs((dt1 - dt2).total_seconds())
+        results.append(int(diff))
+
+    return results
+
+# Input handling
+n = int(input())
+test_cases = [input() for _ in range(n * 2)]  # Gather all test case lines
+
+# Calculate and print results
+results = time_difference(test_cases)
+for res in results:
+    print(res)
