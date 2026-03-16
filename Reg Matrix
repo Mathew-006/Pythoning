@@ -1,0 +1,24 @@
+# Read the dimensions
+rows, cols = map(int, input().split())
+
+# Initialize an empty list to hold the matrix
+matrix = []
+
+# Reading the matrix rows
+for _ in range(rows):
+    matrix.append(input())
+
+# Decoding the matrix script
+decoded_string = ""
+
+# Iterate through each column
+for col in range(cols):
+    for row in range(rows):
+        if col < len(matrix[row]):  # Ensure within row bounds
+            decoded_string += matrix[row][col]
+
+# Adjust for expected format:
+decoded_string = decoded_string.replace('$', ' ')  # Assuming '$' should be treated as space
+
+# Print the decoded script
+print(decoded_string)
