@@ -1,0 +1,17 @@
+from collections import Counter
+
+if __name__ == '__main__':
+    s = input()
+    
+    # Step 1: Count character frequencies
+    # Using Counter creates a dictionary-like object of char: count
+    counts = Counter(s)
+    
+    # Step 2: Sort the items
+    # Primary Key: -x[1] (Descending order of occurrence count)
+    # Secondary Key: x[0] (Alphabetical order of characters for ties)
+    sorted_items = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    
+    # Step 3: Print the top 3 results
+    for char, count in sorted_items[:3]:
+        print(f"{char} {count}")
