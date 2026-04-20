@@ -5,4 +5,5 @@ def swap_case(s):
             num+=(let.lower())
         else:
             num+=(let.upper())
-    return num
+    
+return num
